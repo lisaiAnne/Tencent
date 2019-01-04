@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>搜索</title>
+    <link rel="stylesheet" href="../css/iconfont.css">
+    <link rel="stylesheet" href="../css/commion.css">
+    <link rel="stylesheet" href="../css/seach.css">
+</head>
+<body>
+<!-- header -->
+<div></div>
+<header>
+    <div class="header">
+        <input id="txt" type="text" placeholder="人人都会微信小程序">
+        <a href="index.html"><span class="delSpan">取消</span></a>
+    </div>
+</header>
+<!-- nav -->
+<div class="nav">
+    <p>热门搜索</p>
+    <div class="choose">
+        <ul>
+            <li><a href="#">英语</a></li>
+            <li><a href="#">摄影</a></li>
+            <li><a href="#">公务员</a></li>
+            <li><a href="#">ps</a></li>
+            <li><a href="#">高考数学</a></li>
+            <li><a href="#">物理</a></li>
+            <li><a href="#">PPT</a></li>
+            <li><a href="#">考研政治</a></li>
+            <li><a href="#">excel</a></li>
+            <li><a href="#">前端开发</a></li>
+        </ul>
+    </div>
+</div>
+<!-- section -->
+<section>
+    <p class="section">
+        <span>最近搜索</span>
+        <span class="delHistory">清除历史</span>
+    </p>
+    <!-- <div class="jiLu">
+        <p>最近搜索</p>
+        <p class="imgs"><img src="../img/cuo.png" alt=""></p>
+    </div> -->
+</section>
+</body>
+</html>
+<script type="text/javascript" src="../js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="../js/commion.js"></script>
+<!-- <script type="text/javascript" src="../js/seach.js"></script> -->
+<script type="text/javascript">
+window.onload=function(){
+    $("body #txt").keydown(function(event){	
+		var ev=event||window.event;
+		if(ev.keyCode==13){
+			var divDom='<div class="jiLu"><p class="context>最近搜索</p><p class="imgs"><img src="../img/cuo.png" alt=""></p></div>';
+			$("body .section .jiLu").append(divDom);
+            var con=document.getElementsByClassName("context");
+			for(var i=0;i<con.length;i++){
+				var inputValue=$("body #txt").val();
+				var num=con.length-1;
+				con[num].innerHTML=inputValue;
+			}
+			$("body #txt").val("");
+		}
+	});
+}
+</script>
